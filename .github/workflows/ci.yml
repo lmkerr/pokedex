@@ -53,7 +53,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Deploy to S3 Bucket
-        run: aws s3 sync ./build/ ${{ secrets.AWS_BUCKET_NAME }} --delete
+        run: aws s3 sync ./dist/ ${{ secrets.AWS_BUCKET_NAME }} --delete
 
       - name: Clear CDN Cache
         uses: chetan/invalidate-cloudfront-action@v2
