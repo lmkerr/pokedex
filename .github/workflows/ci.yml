@@ -41,6 +41,10 @@ jobs:
         run: |
           pnpm install
 
+      - name: Run Linting
+        run: |
+          pnpm lint
+
       - name: Build Production Distribution
         run: |
           pnpm build
