@@ -24,7 +24,8 @@ function App() {
         >
           Loren M. Kerr
         </a>{' '}
-        and is in no way associated with Ninendo or the Pokémèn franchise.
+        and is in no way associated with neither Nintendo&#8482; nor the
+        Pokémèn&#8482; franchises.
       </p>
     </>
   );
