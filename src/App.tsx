@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
 import pokeball from './assets/pokeball.png';
-import './App.css';
-import Search from './Search';
+import './app.css';
+import Search from './search/search';
 
 function App() {
   const [count, setCount] = useState(0);
