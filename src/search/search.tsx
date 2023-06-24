@@ -9,7 +9,13 @@ const Search = () => {
 
   const handleSearch = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    searchPokemon(searchTerm);
+    searchPokemon(searchTerm).then(() => {
+      if (pokemon) {
+        // redirect to details page
+      } else {
+        // handle error somehow...
+      }
+    });
   };
 
   return (

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Pokemon } from '../types/pokemon.type';
+import { Pokemon } from '../models/pokemon.type';
 
 export const usePokemonSearch = () => {
   const [pokemon, setPokemon] = useState<Pokemon | null>(null);
