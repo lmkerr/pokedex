@@ -8,6 +8,7 @@ import Input from '../components/input';
 
 /* providers */
 import { usePokemonSearch } from './search.service';
+import { addSearch } from '../state/slices/search.slice';
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -15,12 +16,14 @@ const Search = () => {
   const previousSearches = useSelector((state: any) => {
     return state.search.previousSearches || [];
   });
+  const dispatch = useDispatch();
 
   const handleSearch = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     searchPokemon(searchTerm).then(() => {
       if (pokemon) {
         // redirect to details page
+        dispatch(addSearch(searchTerm));
       } else {
         // handle error somehow...
       }
