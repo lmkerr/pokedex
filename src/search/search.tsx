@@ -1,11 +1,20 @@
+/* libraries */
 import { FormEvent, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+/* components */
 import Button from '../components/button';
 import Input from '../components/input';
+
+/* providers */
 import { usePokemonSearch } from './search.service';
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const { pokemon, loading, error, searchPokemon } = usePokemonSearch();
+  const previousSearches = useSelector((state: any) => {
+    return state.search.previousSearches || [];
+  });
 
   const handleSearch = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -33,6 +42,18 @@ const Search = () => {
             Search
           </Button>
         </form>
+        {loading && <p>Loading...</p>}
+        {error && <p>{error}</p>}
+      </div>
+      <div className="card">
+        <h4>Previous Searches</h4>
+        {previousSearches?.length === 0 && (
+          <div>No previous searches found.</div>
+        )}
+        {previousSearches?.length >= 0 &&
+          previousSearches.map((search: string, i: number) => (
+            <div key={i}>{search}</div>
+          ))}
       </div>
     </>
   );
