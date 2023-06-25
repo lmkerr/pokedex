@@ -9,6 +9,7 @@ import Input from '../components/input';
 /* providers */
 import { usePokemonSearch } from './search.service';
 import { addSearch } from '../state/slices/search.slice';
+import Error from '../components/error';
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -41,12 +42,13 @@ const Search = () => {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             onChange={(e: any) => setSearchTerm(e.target.value)}
           />
-          <Button type="submit" value="submit">
-            Search
+          <Button type="submit" value="submit" disabled={loading}>
+            {!loading && 'Search'}
+            {loading && 'Loading...'}
           </Button>
         </form>
+        {error && <Error className="error">{error}</Error>}
         {loading && <p>Loading...</p>}
-        {error && <p>{error}</p>}
       </div>
       <div className="card">
         <h4>Previous Searches</h4>
