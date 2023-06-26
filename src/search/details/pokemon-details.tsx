@@ -21,8 +21,7 @@ const Image = style.img`
 const PokemonDetails = () => {
   const location = useLocation();
   const { name } = useParams();
-  const { pokemon, loading, error, searchPokemon, setPokemon } =
-    usePokemonSearch();
+  const { pokemon, searchPokemon, setPokemon } = usePokemonSearch();
 
   useEffect(() => {
     if (location.state?.pokemon) {
