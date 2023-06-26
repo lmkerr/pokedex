@@ -6,7 +6,11 @@ function App() {
   return (
     <>
       <div>
-        <img src={pokeball} className="logo react" alt="Spinning Pokeball" />
+        <img
+          src={pokeball}
+          className="logo logo-spin"
+          alt="Spinning Pokeball"
+        />
       </div>
       <h1>Pokédex</h1>
 

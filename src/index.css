@@ -14,6 +14,13 @@
   -webkit-text-size-adjust: 100%;
 }
 
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -48,4 +55,8 @@ h1 {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.card {
+  padding: 2em;
 }

@@ -55,7 +55,7 @@ const Search = () => {
         {loading && <p>Loading...</p>}
       </div>
       <div className="card">
-        <h4>Previous Searches</h4>
+        <h4>Search History</h4>
         {previousSearches?.length === 0 && (
           <div>No previous searches found.</div>
         )}

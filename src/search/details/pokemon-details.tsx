@@ -6,8 +6,8 @@ import style from 'styled-components';
 /* providers */
 import { usePokemonSearch } from '../search.service';
 
-/* models */
-import { Pokemon } from '../../models/pokemon.model';
+/* styles */
+import '../../index.css';
 
 const Header = style.h1`
   text-transform: capitalize;
@@ -32,8 +32,7 @@ const PokemonDetails = () => {
   return (
     <>
       {pokemon && (
-        <div>
-          what
+        <div className="card">
           <Header>{pokemon.name}</Header>
           <div className="card">{pokemon.name}</div>
         </div>
