@@ -1,6 +1,6 @@
 /* libraries */
 import { FormEvent, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
 /* components */
@@ -9,16 +9,17 @@ import Input from '../components/input';
 
 /* providers */
 import { usePokemonSearch } from './search.service';
-import { addSearch } from '../state/slices/search.slice';
 import Error from '../components/error';
 
+/* state */
+import { RootState } from '../state/store';
+
 const Search = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [searchTerm, setSearchTerm] = useState<string>('');
   const { pokemon, loading, error, searchPokemon } = usePokemonSearch();
-  const previousSearches = useSelector((state: any) => {
+  const previousSearches = useSelector((state: RootState) => {
     return state.search.previousSearches || [];
   });
 
@@ -29,7 +30,7 @@ const Search = () => {
         // redirect to details page
         navigate(`/pokemon/${searchTerm}`, { state: { pokemon } });
       } else {
-        // handle error somehow...
+        // weird error masked as a 200, log it somehow...
       }
     });
   };

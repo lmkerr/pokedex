@@ -1,5 +1,5 @@
 /* libraries */
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import style from 'styled-components';
 
@@ -11,6 +11,11 @@ import '../../index.css';
 
 const Header = style.h1`
   text-transform: capitalize;
+  padding: 0 1rem;
+`;
+
+const Image = style.img`
+  
 `;
 
 const PokemonDetails = () => {
@@ -33,8 +38,11 @@ const PokemonDetails = () => {
     <>
       {pokemon && (
         <div className="card">
+          <Image
+            src={pokemon.sprites.front_default}
+            alt={`Default View of ${pokemon.name}`}
+          />
           <Header>{pokemon.name}</Header>
-          <div className="card">{pokemon.name}</div>
         </div>
       )}
     </>

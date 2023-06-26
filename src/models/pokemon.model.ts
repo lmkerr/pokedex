@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* Auto Generated with a tool from the API payload */
 /* If there were more time I would have spent building the interfaces a bit cleaner */
 

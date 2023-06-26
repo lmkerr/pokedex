@@ -1,16 +1,10 @@
 /* library */
 import { configureStore } from '@reduxjs/toolkit';
 import { persistStore } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
 import thunk from 'redux-thunk';
 
 /* redux */
 import searchReducer from './slices/search.slice';
-
-const persistConfig = {
-  key: 'root',
-  storage,
-};
 
 export const store = configureStore({
   reducer: {
