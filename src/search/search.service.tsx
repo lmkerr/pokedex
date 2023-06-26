@@ -26,5 +26,5 @@ export const usePokemonSearch = () => {
     }
   };
 
-  return { pokemon, loading, error, searchPokemon };
+  return { pokemon, loading, error, searchPokemon, setPokemon };
 };

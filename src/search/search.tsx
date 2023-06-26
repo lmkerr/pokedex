@@ -1,6 +1,7 @@
 /* libraries */
 import { FormEvent, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 
 /* components */
 import Button from '../components/button';
@@ -12,12 +13,14 @@ import { addSearch } from '../state/slices/search.slice';
 import Error from '../components/error';
 
 const Search = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [searchTerm, setSearchTerm] = useState<string>('');
   const { pokemon, loading, error, searchPokemon } = usePokemonSearch();
   const previousSearches = useSelector((state: any) => {
     return state.search.previousSearches || [];
   });
-  const dispatch = useDispatch();
 
   const handleSearch = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -25,6 +28,7 @@ const Search = () => {
       if (pokemon) {
         // redirect to details page
         dispatch(addSearch(searchTerm));
+        navigate(`/pokemon/${searchTerm}`, { state: { pokemon } });
       } else {
         // handle error somehow...
       }
@@ -57,7 +61,9 @@ const Search = () => {
         )}
         {previousSearches?.length >= 0 &&
           previousSearches.map((search: string, i: number) => (
-            <div key={i}>{search}</div>
+            <div key={i}>
+              <Link to={`/pokemon/${search}`}>{search}</Link>
+            </div>
           ))}
       </div>
     </>
