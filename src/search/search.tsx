@@ -24,10 +24,9 @@ const Search = () => {
 
   const handleSearch = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    searchPokemon(searchTerm).then(() => {
-      if (pokemon) {
+    searchPokemon(searchTerm).then((data) => {
+      if (data) {
         // redirect to details page
-        dispatch(addSearch(searchTerm));
         navigate(`/pokemon/${searchTerm}`, { state: { pokemon } });
       } else {
         // handle error somehow...
