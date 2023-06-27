@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 env:
-  POKEDEX_API: ${{ vars.POKEDEX_API }}
+  VITE_POKEDEX_API: ${{ vars.POKEDEX_API }}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
