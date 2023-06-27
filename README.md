@@ -10,6 +10,7 @@ This project is built with Vite & `pnpm` using React & TypeScript for Node v18x.
 2. Once your dependencies are added, run `pnpm dev` to run a local dev instance of the application.
 3. Nope... that's it. You're done.
 
+For the sake of this demo, and the fact that the only varible being used today is not sensitive data, the production url for requesting pokemon has been exposed by removing `.env.local` from gitignore. In an enterprise scenario, you should add all `.env.*` files to `.gitignore`.
 
 ## Business Requirements
 
@@ -44,7 +45,7 @@ Pokemon in the evolution chain.
 
 I had a really fun time on this project.  Unfortunately my weekend didn't allow me much heads down time as I just put in 30 mintues here and there as I could. Given the time allotment, I wanted to tackle the business requirements first.  I also wanted to make sure that I had a demoable url available upon completion of a working product using AWS S3 -> AWS CloudFront -> AWS Route53.  Unfortunately I'm having some certificate / CNAME issues on my domain and it could take some time to resolve with the DNS, so at this time I can only provide the CloudFront URL.  
 
-I added a limited but scalable CI/CD pipeline using 2 GitHub actions workflow that runs a production environment for the `main` branch and a development environment for the `dev` branch.  CI is automatically run when deploying. At the sake of saving costs for a side project, I decided to remove the steps from the dev GitHub Action for deploying the project to S3 and clearing the CloudFront cache upon deployment.  But from the file you should get the gist of how it might work in an enterprise level application.
+I added a limited but scalable CI/CD pipeline using 2 GitHub actions workflow that runs a production environment for the `main` branch and a development environment for the `dev` branch.  Environemnts for each are set up within the GitHub repository. CI is automatically run when deploying. At the sake of saving costs for a side project, I decided to remove the steps from the dev GitHub Action for deploying the project to S3 and clearing the CloudFront cache upon deployment.  But from the file you should get the gist of how it might work in an enterprise level application.
 
 ### What's not included (yet..)
 
@@ -53,6 +54,10 @@ I had a lot of fun with this and I'm probably going to continue to work on getti
 - [ ] Unit tests with Vitest or Jest
 - [ ] Cucumber E2E tests with Gherkin syntaxed business rules and scenarios.
 - [ ] A functional CNAME domain at `https://pokdex.lorenkerr.com/`
-- [ ] Additional information around the pokemon details page.
+- [ ] Additional information & styling around the pokemon details page & general styling cleanup.
+- [ ] Consolidation of css into styled components
 - [ ] CI/CD improvement to include a GitHub action that handles a pipeline check for pull requests.
+- [ ] Storybook implimentation for Component Library
+- [ ] Search History cleanup. Only show the last 5 searches
+- [ ] Typeahead on search
   

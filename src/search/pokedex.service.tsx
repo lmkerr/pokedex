@@ -10,7 +10,6 @@ export const getPokedex = () => {
   const [error, setError] = useState<string | null>(null);
 
   const retrievePokedex = async () => {
-    console.log(1);
     setLoading(true);
     setError(null);
 

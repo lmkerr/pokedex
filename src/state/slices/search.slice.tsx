@@ -21,7 +21,6 @@ export const searchSlice = createSlice({
   initialState,
   reducers: {
     addSearch: (state, action: PayloadAction<string>) => {
-      console.log('addSearch triggered');
       state.previousSearches.push(action.payload);
     },
   },
